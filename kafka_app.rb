@@ -5,8 +5,8 @@ require "avro_turf"
 class KafkaApp
 
     def self.kafka_client
-      # initialize the kafka client and app once and then reuse it
-      @kafka ||= Kafka.new(["localhost:9092", "localhost:9093"], client_id: "hobbies_application")
+      # initialize the kafka client in app once and then reuse it
+      @kafka ||= Kafka.new(["PLAINTEXT://localhost:9092", "PLAINTEXT://localhost:9093"], client_id: "hobbies_application")
     end
 
     def self.producer
