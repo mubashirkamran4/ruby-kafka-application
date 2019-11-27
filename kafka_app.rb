@@ -11,11 +11,11 @@ class KafkaApp
     end
 
     def self.producer
-      KafkaApp.kafka_client.producer
+      @kafka_producer ||= KafkaApp.kafka_client.producer
     end
 
     def self.consumer(group_id)
-      KafkaApp.kafka_client.consumer(group_id: "#{group_id}_consumer_group")
+      @kafka_consumer ||= KafkaApp.kafka_client.consumer(group_id: "#{group_id}_consumer_group")
     end
 
     def self.avro_client
@@ -46,8 +46,8 @@ class KafkaApp
       KafkaApp.consumer(topic).subscribe(topic, start_from_beginning: consume_from_flag)
     end
 
-    def consume_messages(topic_name, avro_schema_name)
-      KafkaApp.kafka_client.each_message(topic: topic_name) do |message|
+    def consume_messages(topic_name, avro_schema_name, consumer_group_id)
+      KafkaApp.consumer(consumer_group_id).each_message(topic: topic_name) do |message|
         puts "MESSAGE OFFSET: #{message.offset}, MESSAGE KEY: #{message.key}, MESSAGE VALUE: #{message.value} , MESSAGE PARTITION: #{message.partition}"
         hobby = KafkaApp.avro_client.decode(message.value, schema_name: avro_schema_name)
         puts "ACCORDING TO AVRO SCHEMA IT IS \n"
