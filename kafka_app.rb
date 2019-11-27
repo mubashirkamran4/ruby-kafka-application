@@ -14,8 +14,8 @@ class KafkaApp
       KafkaApp.kafka_client.producer
     end
 
-    def self.consumer
-      KafkaApp.kafka_client.consumer
+    def self.consumer(group_id)
+      KafkaApp.kafka_client.consumer(group_id: "#{group_id}_consumer_group")
     end
 
     def self.avro_client
@@ -31,7 +31,7 @@ class KafkaApp
 
     # 2ND STEP. WRITE MESSAGE TO PRODUCER BUFFER USING AVRO SCHEMA
     def write_message(hobby_name, topic_name, partition_id, avro_schema_name)
-      puts "WRITING MESSAGE <#{hobby_name}> TO TOPIC <#{topic_name} IN PARTITION <#{partition_id}> ACCORDING TO SCHEMA <#{avro_schema_name}>"
+      puts "WRITING MESSAGE <#{hobby_name}> TO TOPIC <#{topic_name}> IN PARTITION <#{partition_id}> ACCORDING TO SCHEMA <#{avro_schema_name}>"
       #INITIALLY IT WAS WRITTEN THIS WAY BEFORE AVRO SCHEMA
       #producer.produce(hobby_name, topic: topic_name, partition_key: partition_id)
       data = KafkaApp.avro_client.encode({ "title" => hobby_name }, schema_name: avro_schema_name)
@@ -43,7 +43,7 @@ class KafkaApp
     end
 
     def subscribe_to_topic(topic, consume_from_flag)
-      KafkaApp.consumer.subscribe(topic, start_from_beginning: consume_from_flag)
+      KafkaApp.consumer(topic).subscribe(topic, start_from_beginning: consume_from_flag)
     end
 
     def consume_messages(topic_name, avro_schema_name)
