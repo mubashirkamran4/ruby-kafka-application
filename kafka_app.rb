@@ -1,12 +1,13 @@
 
 require "kafka"
 require "avro_turf"
+require "byebug"
 
 class KafkaApp
 
     def self.kafka_client
       # initialize the kafka client in app once and then reuse it
-      @kafka ||= Kafka.new(["PLAINTEXT://localhost:9092", "PLAINTEXT://localhost:9093"], client_id: "hobbies_application")
+      @kafka ||= Kafka.new(["0:9092", "1:9093"], client_id: "hobbies_application")
     end
 
     def self.producer
@@ -24,7 +25,8 @@ class KafkaApp
     # 1ST STEP. CREATE A TOPIC WITH 3 PARTITIONS AND A REPLICATION FACTOR OF 2
     def create_topic(topic_name, num_of_partitions, replication_per_partition)
       puts "*********CREATING HOBBIES TOPIC WITH 3 PARTITIONS AND REPLICATION FACTOR OF 2*****************\n\n"
-      KafkaApp.kafka_client.create_topic(topic_name, num_partitions: num_of_partitions, replication_factor: replication_per_partition)
+      kafka_cl = KafkaApp.kafka_client
+      kafka_cl.create_topic(topic_name, num_partitions: num_of_partitions, replication_factor: replication_per_partition)
     end
 
     # 2ND STEP. WRITE MESSAGE TO PRODUCER BUFFER USING AVRO SCHEMA
