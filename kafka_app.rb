@@ -31,10 +31,10 @@ class KafkaApp
 
     # 2ND STEP. WRITE MESSAGE TO PRODUCER BUFFER USING AVRO SCHEMA
     def write_message(hobby_name, topic_name, partition_id, avro_schema_name)
-      puts "WRITING MESSAGE <#{hobby_name}> TO TOPIC <#{topic_name} IN PARTITION <#{partition_id}> ACCORDING TO SCHEMA <#{avro_schema}>"
+      puts "WRITING MESSAGE <#{hobby_name}> TO TOPIC <#{topic_name} IN PARTITION <#{partition_id}> ACCORDING TO SCHEMA <#{avro_schema_name}>"
       #INITIALLY IT WAS WRITTEN THIS WAY BEFORE AVRO SCHEMA
       #producer.produce(hobby_name, topic: topic_name, partition_key: partition_id)
-      data = KafkaApp.avro_client.encode({ "hobby" => hobby_name }, schema_name: avro_schema_name)
+      data = KafkaApp.avro_client.encode({ "title" => hobby_name }, schema_name: avro_schema_name)
       KafkaApp.producer.produce(data, topic: topic_name, partition_key: partition_id)
     end
 

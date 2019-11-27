@@ -1,4 +1,10 @@
 {
     "name": "hobby",
-    "type": "string"
+    "type": "record",
+    "fields": [
+        {
+            "name": "title",
+            "type": "string"
+        }
+    ]
 }
