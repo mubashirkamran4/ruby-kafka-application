@@ -36,6 +36,7 @@ class KafkaApp
       #producer.produce(hobby_name, topic: topic_name, partition_key: partition_id)
       data = KafkaApp.avro_client.encode({ "title" => hobby_name }, schema_name: avro_schema_name)
       KafkaApp.producer.produce(data, topic: topic_name, partition_key: partition_id)
+      puts "Ended Here"
     end
 
     def deliver_all_messages
@@ -47,7 +48,7 @@ class KafkaApp
     end
 
     def consume_messages(topic_name, avro_schema_name, consumer_group_id)
-      KafkaApp.consumer(consumer_group_id).each_message(topic: topic_name) do |message|
+      KafkaApp.consumer(consumer_group_id).each_message do |message|
         puts "MESSAGE OFFSET: #{message.offset}, MESSAGE KEY: #{message.key}, MESSAGE VALUE: #{message.value} , MESSAGE PARTITION: #{message.partition}"
         hobby = KafkaApp.avro_client.decode(message.value, schema_name: avro_schema_name)
         puts "ACCORDING TO AVRO SCHEMA IT IS \n"
@@ -56,7 +57,5 @@ class KafkaApp
     end
 
 
-
 end
-
 
