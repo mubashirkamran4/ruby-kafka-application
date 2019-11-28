@@ -12,7 +12,11 @@ class KafkaConsumer < KafkaApp
   def consume_messages(topic, avro_schema_name)
     KafkaConsumer.consumer(topic).each_message do |message|
       puts "MESSAGE OFFSET: #{message.offset}, MESSAGE PARTITION: #{message.partition}"
+      p message.value
       hobby = KafkaApp.avro_client.decode(message.value, schema_name: avro_schema_name)
+      if hobby['user'] == 'mubashir'
+        p "hey i'm mubashir"
+      end
       puts "ACCORDING TO AVRO SCHEMA IT IS \n"
       puts hobby.inspect
     end

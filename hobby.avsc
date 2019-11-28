@@ -5,6 +5,10 @@
         {
             "name": "title",
             "type": "string"
+        },
+        {
+           "name": "user",
+           "type": "string"
         }
     ]
 }
