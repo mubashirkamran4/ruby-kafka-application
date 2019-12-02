@@ -5,19 +5,20 @@ class KafkaProducerSpec < KafkaAppSpec
   end
 
   # 2ND STEP. WRITE MESSAGE TO PRODUCER BUFFER USING AVRO SCHEMA
-  def write_message(hobby_name, topic_name, avro_schema_name)
-    puts "WRITING MESSAGE <#{hobby_name}> TO TOPIC <#{topic_name}> ACCORDING TO SCHEMA <#{avro_schema_name}>"
-    #INITIALLY IT WAS WRITTEN THIS WAY BEFORE AVRO SCHEMA
-    #producer.produce(hobby_name, topic: topic_name, partition_key: partition_id)
-    data = KafkaApp.avro_client.encode({ "title" => hobby_name, "user" => 'mubashir' }, schema_name: avro_schema_name)
-    p data
-    KafkaProducer.producer.produce(data, topic: topic_name)
-    KafkaProducer.producer.deliver_messages
-    puts "Ended Here"
+  def write_message(user_hobby, topic, avro_schema)
+    puts "WRITING MESSAGE #{user_hobby} TO TOPIC <#{topic}> ACCORDING TO SCHEMA <#{avro_schema}>"
+    avro_schema_file = File.open("./#{avro_schema}.avsc")  # to make sure it exists
+    KafkaAppSpec.kafka_topic.key?("buffered_messages") || KafkaAppSpec.kafka_topic["buffered_messages"] = []
+    KafkaAppSpec.kafka_topic["buffered_messages"].append(user_hobby)
+    return KafkaAppSpec.kafka_topic["buffered_messages"][-1]
   end
 
-  def deliver_all_messages
-    KafkaProducer.producer.deliver_messages
+  def deliver_all_messages(topic)
+    KafkaAppSpec.kafka_topic.key?("delivered_messages") ||  KafkaAppSpec.kafka_topic["delivered_messages"] = []
+    buffered_messages = KafkaAppSpec.kafka_topic[topic]["buffered_messages"].dup
+    KafkaAppSpec.kafka_topic[topic]["delivered_messages"].append(buffered_messages)
+    KafkaAppSpec.kafka_topic[topic]["buffered_messages"] = []
+    return true
   end
 
 
