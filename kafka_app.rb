@@ -1,7 +1,7 @@
 
 require "kafka"
 require "avro_turf"
-require "byebug"
+
 
 class KafkaApp
 
@@ -18,8 +18,7 @@ class KafkaApp
     def create_topic(topic_name, num_of_partitions, replication_per_partition)
       puts 'foo'
       puts "*********CREATING HOBBIES TOPIC WITH 3 PARTITIONS AND A REPLICATION FACTOR OF 2*****************\n\n"
-      kafka_client.create_topic(topic_name, num_partitions: num_of_partitions, replication_factor: replication_per_partition)
-      true # specificially done for the test cases
+      kafka_client.create_topic(topic_name, num_partitions: num_of_partitions, replication_factor: replication_per_partition) # returns true if succeeded
     end
 
 end
