@@ -17,6 +17,7 @@ class KafkaProducer < KafkaApp
   end
 
   def deliver_all_messages
+    puts "GOING TO DELIVER ALL THE MESSAGES"
     producer.deliver_messages
   end
 
