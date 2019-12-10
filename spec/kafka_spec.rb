@@ -5,29 +5,18 @@ require_relative '../kafka_consumer'
 
 describe 'kafka_application' do
 
-
-    # @kafka_client = KafkaApp.new
-    # @kafka_producer = KafkaProducer.new
-    # @kafka_consumer = KafkaConsumer.new
-    # @topic =  "hobbies"
-    # @avro_schema = "hobby"
-
-    let(:fake_kafka_client) { double("Kafka") }
-    let(:kafka_producer) { KafkaProducer.new }
-    let(:kafka_consumer) { KafkaConsumer.new }
     let(:topic) { "hobbies" }
     let(:avro_schema) { "hobby" }
-    let(:num_of_partitions) { 3 }
-    let(:replication_per_partition) { 2 }
     let(:fake_avro_client) { double("Avro") }
-    let(:fake_kafka_producer) { double("KafkaProducer") }
-    let(:fake_kafka_consumer) { double("KafkaConsumer") }
-    let(:hobby_name) { "swimming" }
-    let(:fake_kafka_message) {
-    }
-
 
     context "testing the producer's write and delivering functionalities" do
+      let(:fake_kafka_client) { double("Kafka") }
+      let(:fake_kafka_producer) { double("KafkaProducer") }
+      let(:kafka_producer) { KafkaProducer.new }
+      let(:num_of_partitions) { 3 }
+      let(:replication_per_partition) { 2 }
+      let(:hobby_name) { "swimming" }
+
       before do
         allow_any_instance_of(KafkaApp).to receive(:kafka_client).and_return(fake_kafka_client)
         allow_any_instance_of(KafkaProducer).to receive(:avro_client).and_return(fake_avro_client)
@@ -53,6 +42,12 @@ describe 'kafka_application' do
 
 
   context "testing the consumer's subscribe functionality" do
+    let(:kafka_consumer) { KafkaConsumer.new }
+    let(:fake_kafka_consumer) { double("KafkaConsumer") }
+    let(:fake_kafka_message) {
+    }
+
+
     before do
       allow_any_instance_of(KafkaConsumer).to receive(:consumer).with(topic).and_return(fake_kafka_consumer)
       allow_any_instance_of(KafkaConsumer).to receive(:avro_client).and_return(fake_avro_client)

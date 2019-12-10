@@ -63,3 +63,5 @@ We should see the messages printed in the consumer's terminal by now.
 HOW TO RUN THE TEST CASES
 
 1). Run the command "rspec spec/kafka_spec.rb" to run the test cases in the project's directory.
+
+
