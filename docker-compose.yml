@@ -1,0 +1,38 @@
+version: "3.5"
+
+services:
+  kafka1:
+    image: confluentinc/cp-kafka:3.1.2
+    ports:
+      - "9093:9093"
+    environment:
+      KAFKA_ZOOKEEPER_CONNECT: 'zookeeper:2181'
+      KAFKA_ADVERTISED_LISTENERS: 'PLAINTEXT://kafka1:9093'
+    depends_on:
+        - zookeeper
+
+  kafka2:
+    image: confluentinc/cp-kafka:3.1.2
+    ports:
+      - "9094:9094"
+    environment:
+      KAFKA_ZOOKEEPER_CONNECT: 'zookeeper:2181'
+      KAFKA_ADVERTISED_LISTENERS: 'PLAINTEXT://kafka2:9094'
+    depends_on:
+      - zookeeper
+
+  zookeeper:
+    image: confluentinc/cp-zookeeper:3.1.2
+    environment:
+      ZOOKEEPER_CLIENT_PORT: 2181
+    ports:
+      - "2181:2181"
+
+  kafka_application_container:
+    build:
+      context: '.'
+      dockerfile: Dockerfile
+    depends_on:
+      - kafkamera
+#      - kafka2
+      - zookeeper
