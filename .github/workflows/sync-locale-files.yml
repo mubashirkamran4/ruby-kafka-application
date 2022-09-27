@@ -35,4 +35,4 @@ jobs:
           user-email: mubashirkamran4@gmail.com
           commit-message: See ORIGIN_COMMIT from $GITHUB_REF
           target-branch: master
-          target-directory: app/javascript/frontend/i18n/
+          target-directory: app/javascript/i18n/
