@@ -11,7 +11,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - name: Pushes to another repository
+      - name: Pushes to another repository on backend
         id: push_directory
         uses: cpina/github-action-push-to-another-repository@main
         env:
@@ -24,22 +24,15 @@ jobs:
           commit-message: See ORIGIN_COMMIT from $GITHUB_REF
           target-branch: master
           target-directory: config/locales/
-      
-  build:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2
-      - name: Pushes to another repository to frontend
-        id: push_directory_frontend
+      - name: Pushes to another repository on frontend
         uses: cpina/github-action-push-to-another-repository@main
         env:
           SSH_DEPLOY_KEY: ${{ secrets.SSH_DEPLOY_KEY }}
         with:
-          source-directory: frontend/
+          source-directory: backend/
           destination-github-username: 'mubashirkamran4'
           destination-repository-name: 'LIRE'
           user-email: mubashirkamran4@gmail.com
           commit-message: See ORIGIN_COMMIT from $GITHUB_REF
           target-branch: master
-          target-directory: app/javascript/i18n/
-            
+          target-directory: config/locales/
