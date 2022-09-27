@@ -1,0 +1,206 @@
+de:
+  lp:
+    data: "Objektdaten"
+    properties: "Einheiten"
+    documents: "Dokumente"
+    images: "Bilder"
+    links: "Links"
+    location: "Lage"
+    contact: "Anbieter"
+    cancellation_policy:
+      title: "Rechtliches Formblatt"
+      intro: |
+        <h2>Information zum Exposé</h2>
+        <p>{% if provisionspflichtig %}Es handelt sich um ein provisionspflichtiges {% if objekt_zur_miete %}Mietangebot{% else %}Kaufangebot{% endif %}. Bitte bestätigen Sie die Checkboxen. Andernfalls, können wir Ihnen das Exposé leider nicht anzeigen.{% else %}Es handelt sich um ein provisionsfreies {% if objekt_zur_miete %}Mietangebot{% else %}Kaufangebot{% endif %}. Bitte bestätigen Sie, dass wir Sie zukünftig kontaktieren dürfen. Diese Zustimmung können Sie jederzeit widerrufen.{% endif %} Vielen Dank.</p>
+      desc_html: |
+        <p><strong>Widerrufsrecht</strong><br>
+        Sie haben das Recht, binnen vierzehn Tagen ohne Angabe von Gründen diesen Vertrag zu widerrufen.</p>
+
+        <p>Die Widerrufsfrist beträgt vierzehn Tage ab dem Tag des Vertragsabschlusses.<br>
+        Um Ihr Widerrufsrecht auszuüben, müssen Sie uns, %{shop_info}, mittels einer eindeutigen Erklärung (z.B. ein mit der Post versandter Brief oder E-Mail) über Ihren Entschluss, diesen Vertrag zu widerrufen, informieren. Sie können dafür das beigefügte Muster-Widerrufsformular* verwenden, das jedoch nicht vorgeschrieben ist.</p>
+
+        <p>Zur Wahrung der Widerrufsfrist reicht es aus, dass Sie die Mitteilung über die Ausübung des Widerrufsrechts vor Ablauf der Widerrufsfrist absenden.</p>
+
+        <p><strong>Folgen des Widerrufs</strong><br>
+        Wenn Sie diesen Vertrag widerrufen, haben wir Ihnen alle Zahlungen, die wir von Ihnen erhalten haben, unverzüglich und spätestens binnen vierzehn Tagen ab dem Tag zurückzuzahlen, an dem die Mitteilung über Ihren Widerruf dieses Vertrags bei uns eingegangen ist. Für diese Rückzahlung verwenden wir dasselbe Zahlungsmittel, das Sie bei der ursprünglichen Transaktion eingesetzt haben, es sei denn, mit Ihnen wurde ausdrücklich etwas anderes vereinbart; in keinem Fall werden Ihnen wegen dieser Rückzahlung Entgelte berechnet.</p>
+
+        <p>Haben Sie verlangt, dass die Dienstleistungen während der Widerrufsfrist beginnen soll, so haben Sie uns einen angemessenen Betrag zu zahlen, der dem Anteil der bis zu dem Zeitpunkt, zu dem Sie uns von der Ausübung des Widerrufsrechts hinsichtlich dieses Vertrags unterrichten, bereits erbrachten Dienstleistungen im Vergleich zum Gesamtumfang der im Vertrag vorgesehenen Dienstleistungen entspricht.</p>
+      terms: "AGB"
+      privacy: "Datenschutzerklärung"
+      read: 'Ich habe die <a href="#" data-toggle="modal" data-target="#policy-description">Widerrufsbelehrung</a> gelesen und verstanden.*'
+      accept_service: "Ich bin ausdrücklich damit einverstanden und verlange, dass Sie bereits vor dem Ende der Widerrufsfrist mit der Ausführung der Dienstleistung (wie dem Versenden eines unverbindlichen Exposés), die Gegenstand des zu schließenden Vertrags ist, beginnen. Ferner ist mir bekannt, dass ich bereits mit vollständiger Vertragserfüllung durch Sie das mir gesetzlich zustehende Widerrufsrecht verliere. Das unverbindliche Exposé kann Ihnen jetzt nur zur Verfügung gestellt werden, wenn Sie dem vorzeitigen Beginn zustimmen."
+      accept_terms_html: 'Hiermit akzeptiere ich die <a href="#" data-toggle="modal" data-target="#terms">AGB</a>.*'
+      accept_privacy_html: 'Ich habe die <a href="#" data-toggle="modal" data-target="#privacy">Datenschutzerklärung</a> gelesen und verstanden.*'
+      accept_contact: "Ich bin einverstanden per Telefon, Fax und/oder per E-Mail kontaktiert zu werden.*"
+      send: "Senden und zum Exposé gelangen"
+      send_footnote: "* Pflichtfelder"
+      cancelled: "%{shop} wurde benachrichtigt, dass Sie dem vorzeitigen Beginn nicht zugestimmt haben. Deshalb kann Ihnen das Exposé noch nicht zur Verfügung gestellt werden. Bitte setzen Sie sich mit %{shop} in Verbindung, wenn Sie möchten, dass Ihnen das Exposé erneut bereitgestellt werden soll."
+      cancel:
+        title: "Muster-Widerrufsformular"
+        headline: "(Wenn Sie den Vertrag widerrufen wollen, dann füllen Sie bitte dieses Formular aus und senden Sie es zurück.)"
+        desc: |
+          An
+          %{shop_info}
+
+          Hiermit widerrufe(n) ich/wir (*) den von mir/uns (*) abgeschlossenen Vertrag über die Erbringung der folgenden Dienstleistung (*)
+
+          Bestellt am _________________________________ (*)/erhalten am __________________________________ (*)
+
+          Name des/der Verbraucher(s):  ____________________________________
+
+          Anschrift des/der Verbraucher(s): ____________________________________
+
+          Unterschrift des/der Verbraucher(s): ____________________________________
+          (nur bei Mitteilung auf Papier)
+
+          Datum: ___________________
+
+          (*) Unzutreffendes streichen.
+        button: "Muster-Widerruf öffnen"
+      email:
+        documents: "Bestätigung"
+        service_confirmation: "Auftragsbestätigung"
+        service_confirmation_body: "Ich danke Ihnen für den Auftrag. Auf eine erfolgreiche Zusammenarbeit!"
+      alert: "Sie haben dem vorzeitigen Beginn nicht zugestimmt. Dadurch kann der Makler seine Maklertätigkeit erst in 14 Tagen beginnen. Somit können wir Ihnen das Exposé erst in frühestens 14 Tagen bereitstellen."
+    cp:
+      title: "Adressvervollständigung"
+      desc: 'Füllen Sie die untenstehenden Felder mit Ihren Daten aus und klicken danach auf "Speichern", um Ihre Änderungen einzutragen. Bitte beachten Sie, dass nach dem Speichern diese Seite nicht mehr gültig ist und keine Änderungen mehr nachträglich eingefügt werden können.'
+      desc_edited: "Das Formular wurde abgeschickt. Bitte kontaktieren Sie Ihren Ansprechpartner bei offenen Fragen."
+      accept_contact: Ich stimme der Speicherung der oben genannten Daten zu.
+      accept_contact_not: Ich stimme der Speicherung der oben genannten Daten <b>nicht</b> zu.
+      accept_contact_not_footnote: Ihre gespeicherten Daten werden gelöscht, soweit keine gesetzliche Aufbewahrungsfrist dagegen spricht, bzw. keine anderen vorrangigen berechtigten Gründe vorhanden sind.
+      accept_gdpr: Ich habe die <a href="%{url}" target="_blank"><u>Hinweispflichten</u></a> zur Verarbeitung gemäß Art. 13/14 der EU-Datenschutzgrundverordnung zur Kenntnis genommen.
+      submit: "Daten speichern"
+      delete: "Daten löschen"
+    clabels:
+      salutation: "Anrede"
+      academic_title: "Titel"
+      first_name: "Vorname"
+      last_name: "Nachname"
+      email: "E-Mail-Adresse"
+      phone: "Telefon"
+      cell: "Mobil"
+      company: "Firma"
+      street: "Straße"
+      house_number: "Hausnummer"
+      zip_code: "PLZ"
+      city: "Ort"
+      country: "Land"
+    sq:
+      title: "Ihr Suchprofil"
+      desc: "Hier können Sie Ihre Suchprofile verwalten.<br>Diese können Sie jederzeit ändern oder löschen."
+      search_profile: "Suchprofil"
+      edit: "Bearbeiten"
+      save: "Speichern"
+      cancel: "Abbrechen"
+      delete: "Löschen"
+      new: "Neues Suchprofil erstellen"
+      districts: "Geolage"
+      cities: "Stadt"
+      regions: "Region"
+      marketing_type: "Miete o. Kauf"
+      rs_types: "Immobilientyp"
+      rs_categories: "Immobilienart"
+      space_from: "Fläche von"
+      space_to: "Fläche bis"
+      rooms_from: "Zimmer von"
+      rooms_to: "Zimmer bis"
+      beds_from: "Schlafzimmer von"
+      beds_to: "Schlafzimmer bis"
+      rent_from: "Miete von"
+      rent_to: "Miete bis"
+      price_from: "Preis von"
+      price_to: "Preis bis"
+      floor_from: "Etage von"
+      floor_to: "Etage bis"
+      countries: "Land"
+      national: "In Deutschland"
+      international: "Im Ausland"
+    accept_storage:
+      checkbox: 'Ich erkläre mich bis auf Widerruf mit der Verarbeitung meiner Daten durch %{shop} einverstanden. <a href="#" data-toggle="modal" data-target="#privacy">Datenschutzbestimmungen</a>'
+    accept_contact:
+      title: "Kontakterlaubnis bestätigen"
+      checkbox: "Hiermit bestätige ich, dass ich zukünftig durch %{shop} kontaktiert und per E-Mail über neue Objekte oder Firmenneuigkeiten informiert werden darf."
+      send: "Bestätigung senden"
+      unsubscribe: "Kontakterlaubnis zurückgezogen!"
+      note: "Sie haben außerdem jederzeit die Möglichkeit diese Zustimmung ohne Angabe von Gründen zu widerrufen. Dies können Sie uns persönlich mitteilen oder sich selbst über einen in unserem Newsletter befindlichen Link abmelden."
+      unsubscribe_desc: "Wir werden Sie ab jetzt nicht mehr über neue Angebote kontaktieren."
+      success: "Vielen Dank für die Bestätigung der Kontakterlaubnis. Wir freuen uns Sie informieren zu dürfen."
+      company: Firma
+      first_name: "Vorname"
+      last_name: "Name"
+      email: "E-Mail"
+      phone: Telefon
+      dismiss_link: "oder Fenster schließen"
+    ec:
+      title: "Termin"
+      event: "Informationen zum Termin"
+      date: "Zeitpunkt"
+      location: "Ort"
+      submit: "Termin absagen"
+      took_place: "Der Termin hat stattgefunden!"
+      cancelled: "Der Termin wurde abgesagt!"
+      accepted: "Vielen Dank! Sie haben den Termin akzeptiert."
+      accept_event: Termin zusagen
+      cancel_event: "Termin absagen"
+      no_more_interest: "Kein Interesse mehr am Objekt"
+      no_time: "Es passt zeitlich doch nicht / Es sind andere Termine dazwischen gekommen"
+      illness: "Krankheit"
+      other: "Sonstiges"
+      out_of_date: "Der Termin ist abgelaufen"
+      new_booking: Neuen Termin buchen
+    d:
+      title: "Dokumenten-Ablage"
+    doi:
+      title: Vielen Dank!
+      desc: Sie haben Ihre E-Mail-Adresse %{email} erfolgreich verifiziert.
+    b:
+      success: Der Termin am %{date} wurde bestätigt!
+    pd:
+      title: Objektunterlagen
+    not_found:
+      page_not_found: Wir konnten die Seite nicht finden.
+      property_unavailable: Die gewünschte Immobilie ist aktuell nicht verfügbar.
+    reservation_reasons:
+      title: Objekt absagen
+      confirm: "Ihr Ansprechpartner wird über ihre Absage benachrichtigt. Achtung: Die Absage kann nicht mehr geändert werden."
+      submit: Absagen
+      cancelled: "Sie haben das Objekt abgesagt:"
+    fd:
+      password:
+        desc: |
+          Sie haben einen Link zu einem Ordner erhalten, der mit einem Passwort-Schutz versehen ist.
+
+          Um den Inhalt zu öffnen, geben Sie das Passwort ein. Wenn Sie das Passwort nicht haben, fragen Sie die Person, die den Inhalt mit Ihnen geteilt hat.
+        incorrect: Passwort ist nicht korrekt
+        placeholder: Passwort eingeben
+        submit: Bestätigen
+    newsletter:
+      unsubscribe: Newsletter abbestellt
+      unsubscribe_desc: Sie werden ab jetzt keine Newsletter-E-Mails mehr von uns erhalten.
+    bo:
+      title: Ihr Maklerauftrag mit %{shop}
+      property: Auftragsobjekt
+      address: Adresse
+      contract_start: Vertragsstart
+      contract_end: Befristet bis
+      perpetual: Unbefristet
+      contract_type: Auftragsart
+      form_title: Maklervertrag
+      accept_cancellation_policy: Ich habe die <a href="#" data-toggle="modal" data-target="#policy">Widerrufsbelehrung</a> zur Kenntnis genommen.
+      accept_terms: Ich akzeptiere den <a href="#" data-toggle="modal" data-target="#broker-order">Maklervertrag</a>.
+      submit: Provisionspflichtig bestellen*
+      submitted: Vielen Dank für die Beauftragung unserer Dienstleistung!
+      buy:
+        price: "Gewünschter Kaufpreis:"
+        internal_courtage: "Verkäuferprovision im Erfolgsfall:"
+        courtage: "Käuferprovision im Erfolgsfall:"
+        footnote: "*Provision wird erst fällig nach erfolgreichem Verkauf"
+      rent:
+        price: "Gewünschter Mietpreis:"
+        internal_courtage: "Vermieterprovision im Erfolgsfall:"
+        courtage: "Mieterprovision im Erfolgsfall:"
+        footnote: "*Provision wird erst fällig nach erfolgreicher Vermietung"
+  not_found:
+    page_not_found: Wir konnten die Seite nicht finden.
+    property_unavailable: Die gewünschte Immobilie ist aktuell nicht verfügbar.
