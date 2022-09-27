@@ -25,7 +25,12 @@ jobs:
           target-branch: master
           target-directory: config/locales/
       
-        id: push_directory_from_frontend
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Pushes to another repository to frontend
+        id: push_directory_frontend
         uses: cpina/github-action-push-to-another-repository@main
         env:
           SSH_DEPLOY_KEY: ${{ secrets.SSH_DEPLOY_KEY }}
