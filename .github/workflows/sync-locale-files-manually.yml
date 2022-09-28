@@ -1,4 +1,4 @@
-name: sync-locale-files
+name: sync-locale-files-manually
 on:
   workflow_dispatch:
       branches: [development_in_progress]
