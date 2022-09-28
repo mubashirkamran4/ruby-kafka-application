@@ -1,0 +1,35 @@
+name: sync-locale-files
+
+on:
+  branches: [master]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Pushes to another repository manually on backend
+        id: push_directory_manually
+        uses: cpina/github-action-push-to-another-repository@main
+        env:
+          SSH_DEPLOY_KEY: ${{ secrets.SSH_DEPLOY_KEY }}
+        with:
+          source-directory: backend/
+          destination-github-username: 'mubashirkamran4'
+          destination-repository-name: 'LIRE'
+          user-email: mubashirkamran4@gmail.com
+          commit-message: See ORIGIN_COMMIT from $GITHUB_REF
+          target-branch: master
+          target-directory: config/locales/
+      - name: Pushes to another repository manually on frontend
+        uses: cpina/github-action-push-to-another-repository@main
+        env:
+          SSH_DEPLOY_KEY: ${{ secrets.SSH_DEPLOY_KEY }}
+        with:
+          source-directory: frontend/
+          destination-github-username: 'mubashirkamran4'
+          destination-repository-name: 'LIRE'
+          user-email: mubashirkamran4@gmail.com
+          commit-message: See ORIGIN_COMMIT from $GITHUB_REF
+          target-branch: master
+          target-directory: app/javascript/i18n/
