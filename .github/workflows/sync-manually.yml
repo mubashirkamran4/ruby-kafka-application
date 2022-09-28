@@ -1,7 +1,6 @@
 name: sync-locale-files
 on:
   workflow_dispatch:
-    inputs:
       branches: [development_in_progress]
 jobs:
   build:
