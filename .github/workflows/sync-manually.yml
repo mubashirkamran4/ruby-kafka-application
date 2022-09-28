@@ -1,5 +1,10 @@
 name: sync-locale-files
 
+
+on: 
+  workflow_dispatch:
+    push:
+      branches: [master]
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -12,7 +17,6 @@ jobs:
           SSH_DEPLOY_KEY: ${{ secrets.SSH_DEPLOY_KEY }}
         with:
           source-directory: backend/
-          source-branch: development_in_progress
           destination-github-username: 'mubashirkamran4'
           destination-repository-name: 'LIRE'
           user-email: mubashirkamran4@gmail.com
