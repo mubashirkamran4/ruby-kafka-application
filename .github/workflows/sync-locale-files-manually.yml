@@ -1,7 +1,7 @@
 name: sync-locale-files-manually
 on:
   workflow_dispatch:
-      branches: [development_in_progress]
+
 jobs:
   build:
     runs-on: ubuntu-latest
